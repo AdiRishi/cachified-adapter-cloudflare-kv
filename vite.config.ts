@@ -12,6 +12,9 @@ export default defineConfig({
       fileName: "index",
       formats: ["es", "cjs"],
     },
+    rollupOptions: {
+      external: ["@epic-web/cachified", "@cloudflare/workers-types"],
+    },
   },
   plugins: [
     typescript({
