@@ -43,6 +43,7 @@ jobs:
         with:
           commit: "chore(release): Release latest changesets"
           title: "chore(release): Release latest changesets"
+          setupGitUser: false
           createGithubReleases: true
           publish: pnpm changeset publish
         env:
