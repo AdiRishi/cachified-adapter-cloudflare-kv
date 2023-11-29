@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "description": "The official Cloudflare KV adapter for @epic-web/cachified",
+  "description": "Cloudflare KV adapter for @epic-web/cachified",
   "keywords": [
     "cache",
     "@epic-web/cachified",
