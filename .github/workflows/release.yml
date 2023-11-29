@@ -12,8 +12,17 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
+      - name: Create Github Token as Changesets-Bot
+        id: create_token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.CHANGESETS_RELEASE_APP_ID }}
+          private_key: ${{ secrets.CHANGESETS_RELEASE_PRIVATE_KEY }}
+
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          token: ${{ steps.create_token.outputs.token }}
 
       - name: Setup pnpm and node
         uses: pnpm/action-setup@v2
@@ -28,12 +37,6 @@ jobs:
         run: pnpm install
       - name: Build package
         run: pnpm build
-
-      - id: create_token
-        uses: tibdex/github-app-token@v2
-        with:
-          app_id: ${{ secrets.CHANGESETS_RELEASE_APP_ID }}
-          private_key: ${{ secrets.CHANGESETS_RELEASE_PRIVATE_KEY }}
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
