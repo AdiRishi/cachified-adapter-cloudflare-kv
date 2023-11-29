@@ -25,6 +25,7 @@ jobs:
           token: ${{ steps.create_token.outputs.token }}
 
       - name: Setup git user as Changesets Bot
+        # The bot id is taken from https://api.github.com/users/changesets-release-app[bot]
         run: |
           git config --global user.name "changesets-release-app[bot]"
           git config --global user.email "152388490+changesets-release-app[bot]@users.noreply.github.com"
