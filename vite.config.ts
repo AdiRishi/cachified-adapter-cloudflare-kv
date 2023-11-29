@@ -5,10 +5,11 @@ import typescript from "@rollup/plugin-typescript";
 export default defineConfig({
   build: {
     sourcemap: false,
+    minify: false,
     lib: {
-      entry: path.resolve(__dirname, "src/main.ts"),
+      entry: path.resolve(__dirname, "src/index.ts"),
       name: "CachifiedAdapterCloudflareKv",
-      fileName: "main",
+      fileName: "index",
       formats: ["es", "cjs"],
     },
   },
