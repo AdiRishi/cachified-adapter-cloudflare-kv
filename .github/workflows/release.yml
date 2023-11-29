@@ -44,7 +44,7 @@ jobs:
       - name: Build package
         run: pnpm build
 
-      - name: Create Release Pull Request
+      - name: Changesets Release
         uses: changesets/action@v1
         with:
           commit: "chore(release): Release latest changesets"
