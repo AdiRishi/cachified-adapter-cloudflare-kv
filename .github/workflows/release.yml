@@ -24,6 +24,11 @@ jobs:
         with:
           token: ${{ steps.create_token.outputs.token }}
 
+      - name: Setup git user as Changesets Bot
+        run: |
+          git config --global user.name "changesets-release-app[bot]"
+          git config --global user.email "152388490+changesets-release-app[bot]@users.noreply.github.com"
+
       - name: Setup pnpm and node
         uses: pnpm/action-setup@v2
         with:
