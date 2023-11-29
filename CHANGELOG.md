@@ -1,5 +1,11 @@
 # cachified-adapter-cloudflare-kv
 
+## 0.0.3
+
+### Patch Changes
+
+- 312cfaf: Fix incorrect esm file name in package.json export
+
 ## 0.0.2
 
 ### Patch Changes

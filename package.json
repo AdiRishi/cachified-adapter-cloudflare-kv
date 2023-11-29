@@ -1,7 +1,7 @@
 {
   "name": "cachified-adapter-cloudflare-kv",
   "description": "Cloudflare KV adapter for @epic-web/cachified",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
