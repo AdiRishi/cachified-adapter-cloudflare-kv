@@ -26,6 +26,8 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install
+      - name: Build package
+        run: pnpm build
 
       - id: create_token
         uses: tibdex/github-app-token@v2

@@ -4,4 +4,4 @@
 
 ### Patch Changes
 
-- 8ffa8ff: Specify peerDependencies as external packages in vite build
+-   8ffa8ff: Specify peerDependencies as external packages in vite build
