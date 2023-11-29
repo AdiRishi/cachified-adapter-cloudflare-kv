@@ -3,12 +3,45 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "The official Cloudflare KV adapter for @epic-web/cachified",
+  "keywords": [
+    "cache",
+    "@epic-web/cachified",
+    "cachified",
+    "cloudflare",
+    "cloudflare-workers",
+    "cloudflare kv"
+  ],
+  "author": {
+    "name": "Adishwar Rishi",
+    "url": "https://github.com/AdiRishi"
+  },
+  "homepage": "https://github.com/AdiRishi/cachified-adapter-cloudflare-kv",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AdiRishi/cachified-adapter-cloudflare-kv.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AdiRishi/cachified-adapter-cloudflare-kv/issues"
+  },
+  "license": "MIT",
+  "readme": "README.md",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "prettier --check .",
+    "format": "prettier --write ."
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/node": "^20.10.0",
+    "prettier": "^3.1.0",
+    "tslib": "^2.6.2",
     "typescript": "^5.3.2",
     "vite": "^5.0.4"
   }
