@@ -1,5 +1,15 @@
 # cachified-adapter-cloudflare-kv
 
+## 0.1.0
+
+### Minor Changes
+
+- 3af27b6: Improve documentation and add usage examples in the README
+
+### Patch Changes
+
+- a4239d8: Add jsdoc comments to adapter code
+
 ## 0.0.3
 
 ### Patch Changes
