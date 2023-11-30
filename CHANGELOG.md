@@ -4,7 +4,7 @@
 
 ### Major Changes
 
-- 7725598: 🎉 We are thrilled to announce the official 1.0 release of `cachified-adapter-cloudflare-kv`! 🚀
+- 7725598: 🎉 I'm thrilled to announce the official 1.0 release of `cachified-adapter-cloudflare-kv`! 🚀
 
   ## 📦 Installation
 
@@ -58,7 +58,7 @@
 
   For detailed usage and configuration options, please refer to the README in our repository.
 
-  We're excited to share the latest updates to `cachified-adapter-cloudflare-kv` with you. Your feedback and contributions are greatly appreciated as we work together to enhance web performance. 🌐
+  I'm excited to share the latest updates to `cachified-adapter-cloudflare-kv` with you. Your feedback and contributions are greatly appreciated as we work together to enhance web performance. 🌐
 
 ## 0.1.0
 
