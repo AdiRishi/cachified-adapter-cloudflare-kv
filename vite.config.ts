@@ -6,8 +6,9 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   build: {
-    sourcemap: false,
+    sourcemap: true,
     minify: false,
+    outDir: "dist",
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "CachifiedAdapterCloudflareKv",
@@ -18,14 +19,7 @@ export default defineConfig({
       external: ["@epic-web/cachified", "@cloudflare/workers-types"],
     },
   },
-  plugins: [
-    typescriptPaths(),
-    typescript({
-      sourceMap: false,
-      declaration: true,
-      outDir: "dist",
-    }),
-  ],
+  plugins: [typescriptPaths(), typescript()],
   test: {
     reporters: ["verbose"],
     coverage: {

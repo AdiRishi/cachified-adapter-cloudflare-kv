@@ -7,6 +7,9 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
     "types": ["vitest-environment-miniflare/globals"],
+    "sourceMap": true,
+    "declaration": true,
+    "outDir": "dist",
 
     /* Bundler mode */
     "moduleResolution": "Bundler",
