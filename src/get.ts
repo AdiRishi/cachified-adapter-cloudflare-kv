@@ -1,5 +1,5 @@
 import { KVNamespace } from "@cloudflare/workers-types";
-import { type CacheEntry } from "@epic-web/cachified";
+import { type CacheEntry, type CacheMetadata } from "@epic-web/cachified";
 import { buildCacheKey } from "./utils";
 
 export async function getOperation(
@@ -8,9 +8,13 @@ export async function getOperation(
   keyPrefix?: string,
 ): Promise<CacheEntry<unknown> | null> {
   const cacheKey = buildCacheKey(key, keyPrefix);
-  const value = await kv.get(cacheKey, { type: "text" });
+  const { value, metadata } = await kv.getWithMetadata<CacheMetadata>(cacheKey, { type: "text" });
   if (value === null) {
     return value;
   }
-  return JSON.parse(value);
+  const jsonValue = JSON.parse(value);
+  return {
+    value: jsonValue,
+    metadata: metadata!,
+  };
 }

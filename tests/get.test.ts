@@ -20,24 +20,57 @@ describe("getOperation() tests", () => {
   test("should return the correct value for an existing key", async () => {
     const key = "existing-key";
     const expectedValue = { data: "This is a test object." };
-    await env.KV.put(key, JSON.stringify(expectedValue));
-    const value = await getOperation(env.KV, key);
-    expect(value).toEqual(expectedValue);
+    const expectedMetadata = { createdTime: Date.now() };
+    await env.KV.put(buildCacheKey(key), JSON.stringify(expectedValue), {
+      metadata: expectedMetadata,
+    });
+    const cacheEntry = await getOperation(env.KV, key);
+    expect(cacheEntry).toEqual({ value: expectedValue, metadata: expectedMetadata });
   });
 
   test("should return the correct value with a key prefix", async () => {
     const key = "key-with-prefix";
     const keyPrefix = "testPrefix";
     const expectedValue = { data: "This is a test object with prefix." };
-    await env.KV.put(`${keyPrefix}:${key}`, JSON.stringify(expectedValue));
-    const value = await getOperation(env.KV, key, keyPrefix);
-    expect(value).toEqual(expectedValue);
+    const expectedMetadata = { createdTime: Date.now() };
+    await env.KV.put(buildCacheKey(key, keyPrefix), JSON.stringify(expectedValue), {
+      metadata: expectedMetadata,
+    });
+    const cacheEntry = await getOperation(env.KV, key, keyPrefix);
+    expect(cacheEntry).toEqual({ value: expectedValue, metadata: expectedMetadata });
   });
 
-  test("should handle non-JSON values gracefully", async () => {
-    const key = "non-json-key";
+  test("should handle JSON stringified non-JSON values gracefully", async () => {
+    const key = "stringified-non-json-key";
+    const stringValue = "Non-JSON string";
+    const stringifiedValue = JSON.stringify(stringValue);
+    const expectedMetadata = { createdTime: Date.now() };
+    await env.KV.put(buildCacheKey(key), stringifiedValue, {
+      metadata: expectedMetadata,
+    });
+    const cacheEntry = await getOperation(env.KV, key);
+    expect(cacheEntry).toEqual({ value: stringValue, metadata: expectedMetadata });
+  });
+
+  test("should throw an error for non-stringified non-JSON values", async () => {
+    const key = "non-stringified-non-json-key";
     const nonJsonValue = "Non-JSON string";
-    await env.KV.put(key, nonJsonValue);
-    await expect(getOperation(env.KV, key)).rejects.toThrow(SyntaxError);
+    const expectedMetadata = { createdTime: Date.now() };
+    await env.KV.put(buildCacheKey(key), nonJsonValue, {
+      metadata: expectedMetadata,
+    });
+    await expect(getOperation(env.KV, key)).rejects.toThrow();
+  });
+
+  // Additional test case: Check if metadata is returned correctly
+  test("should return the correct metadata for an existing key", async () => {
+    const key = "key-with-metadata";
+    const expectedValue = { data: "This is a test object with metadata." };
+    const expectedMetadata = { createdTime: Date.now(), ttl: 3600 };
+    await env.KV.put(buildCacheKey(key), JSON.stringify(expectedValue), {
+      metadata: expectedMetadata,
+    });
+    const cacheEntry = await getOperation(env.KV, key);
+    expect(cacheEntry).toEqual({ value: expectedValue, metadata: expectedMetadata });
   });
 });
