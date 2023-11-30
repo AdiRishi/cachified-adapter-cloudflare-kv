@@ -55,6 +55,7 @@ export default {
         env.CACHIFIED_KV_CACHE = cloudflareKvCacheAdapter({
             kv: env.KV,
             keyPrefix: "mycache", // optional
+            name: "CloudflareKV", // optional
         });
         const userId = Math.floor(Math.random() * 10) + 1;
         const user = await getUserById(userId, env);
@@ -67,9 +68,35 @@ export default {
 
 The adapter takes the following configuration options:
 
+-   kv: The KVNamespace instance used to interact with Cloudflare KV.
+-   keyPrefix (optional): A prefix for all keys managed by this adapter. Useful when sharing a KVNamespace for multiple purposes.
+-   name (optional): Name for the cache instance, defaults to "CloudflareKV". Used by `@epic-web/cachified` to identify the cache instance during reporting
+
+The `KVNamespace` instance can be obtained from the `env` object passed to the `fetch` event handler of a Cloudflare worker.
+
+You can create a new KVNamespace using the wrangler CLI:
+
+```sh
+wrangler kv:namespace create <YOUR_NAMESPACE>
+🌀  Creating namespace with title <YOUR_WORKER-YOUR_NAMESPACE>
+✨  Success!
+Add the following to your configuration file:
+kv_namespaces = [
+  { binding = <YOUR_BINDING>, id = "e29b263ab50e42ce9b637fa8370175e8" }
+]
+```
+
+Then add the following to your `wrangler.toml` file:
+
+```toml
+kv_namespaces = [
+    { binding = "<YOUR_BINDING>", id = "<YOUR_ID>" }
+]
+```
+
 ## 📈 Planned Changes
 
-Investigating the integration of ExecutionContext for non-blocking cache operations.
+-   Investigating the integration of `ExecutionContext` for non-blocking cache operations.
 
 ## 🤝 Contributing
 
