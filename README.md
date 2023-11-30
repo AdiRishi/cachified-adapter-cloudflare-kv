@@ -106,3 +106,11 @@ Contributions are what make the open-source community an amazing place to learn,
 
 -   [@epic-web/cachified](https://github.com/epicweb-dev/cachified) - For the foundational caching library.
 -   [Cloudflare KV](https://developers.cloudflare.com/kv/) - For the underlying caching technology.
+
+---
+
+<div align="center">
+
+Made with ❤️
+
+</div>
