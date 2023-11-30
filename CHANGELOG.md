@@ -48,13 +48,17 @@
       ctx: ExecutionContext,
     ): Promise<Response> {
       env.CACHIFIED_KV_CACHE = cloudflareKvCacheAdapter({ kv: env.KV });
+      const user = await getUserById(1, env.CACHIFIED_KV_CACHE);
+      return new Response(JSON.stringify(user), {
+        headers: { "content-type": "application/json" },
+      });
     },
   };
   ```
 
   For detailed usage and configuration options, please refer to the README in our repository.
 
-  We welcome users to this new chapter in `cachified-adapter-cloudflare-kv`'s journey and look forward to your feedback and contributions. Let's build a faster web together! 🌐
+  We're excited to share the latest updates to `cachified-adapter-cloudflare-kv` with you. Your feedback and contributions are greatly appreciated as we work together to enhance web performance. 🌐
 
 ## 0.1.0
 
