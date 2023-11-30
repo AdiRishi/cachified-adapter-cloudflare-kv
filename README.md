@@ -12,7 +12,7 @@
 
 ## 🚀 Introduction
 
-`cachified-adapter-cloudflare-kv` is the official adapter for `@epic-web/cachified`, designed to provide a seamless and efficient integration with Cloudflare KV storage.
+`cachified-adapter-cloudflare-kv` is the official adapter for [`@epic-web/cachified`](https://github.com/epicweb-dev/cachified), designed to provide a seamless and efficient integration with Cloudflare KV storage.
 
 ## 📦 Installation
 
