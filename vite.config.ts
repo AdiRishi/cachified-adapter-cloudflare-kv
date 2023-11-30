@@ -1,6 +1,8 @@
-import path from "path";
-import { defineConfig } from "vite";
+/// <reference types="vitest" />
 import typescript from "@rollup/plugin-typescript";
+import path from "path";
+import { typescriptPaths } from "rollup-plugin-typescript-paths";
+import { defineConfig } from "vite";
 
 export default defineConfig({
   build: {
@@ -17,10 +19,20 @@ export default defineConfig({
     },
   },
   plugins: [
+    typescriptPaths(),
     typescript({
       sourceMap: false,
       declaration: true,
       outDir: "dist",
     }),
   ],
+  test: {
+    coverage: {
+      enabled: true,
+      provider: "v8",
+      reporter: ["text", "html", "clover", "json"],
+    },
+    environment: "node",
+    include: ["tests/*.test.ts", "tests/**/*.test.ts"],
+  },
 });

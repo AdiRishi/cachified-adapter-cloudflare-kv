@@ -1,3 +1,5 @@
 {
-  "$schema": "https://json.schemastore.org/prettierrc"
+  "$schema": "https://json.schemastore.org/prettierrc",
+  "importOrder": ["^@core/(.*)$", "<THIRD_PARTY_MODULES>", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }

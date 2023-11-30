@@ -14,9 +14,8 @@ npm install cachified-adapter-cloudflare-kv
 
 ```ts
 // This is a sample Cloudflare worker script
-
-import { cloudflareKvCacheAdapter } from "cachified-adapter-cloudflare-kv";
 import { cachified, Cache } from "@epic-web/cachified";
+import { cloudflareKvCacheAdapter } from "cachified-adapter-cloudflare-kv";
 
 export interface Env {
     KV: KVNamespace;
