@@ -11,12 +11,12 @@ import { setOperation } from "./set";
  * @property {string} [keyPrefix] - Optional prefix for all keys managed by this adapter.
  * @property {string} [name] - Optional name for the cache, defaults to "CloudflareKV".
  */
-export interface CloudflareKvCacheConfig {
+export type CloudflareKvCacheConfig = {
   kv: KVNamespace;
   ctx?: ExecutionContext;
   keyPrefix?: string;
   name?: string;
-}
+};
 
 /**
  * Creates a cache adapter for Cloudflare's KV storage.
@@ -25,7 +25,7 @@ export interface CloudflareKvCacheConfig {
  */
 export function cloudflareKvCacheAdapter(config: CloudflareKvCacheConfig): Cache {
   return {
-    name: config.name || "CloudflareKV",
+    name: config.name ?? "CloudflareKV",
     get: async (key) => {
       return getOperation(config.kv, key, config.keyPrefix);
     },

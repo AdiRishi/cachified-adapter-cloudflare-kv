@@ -1,5 +1,4 @@
 import { KVNamespace } from "@cloudflare/workers-types";
-import { type CacheEntry, totalTtl } from "@epic-web/cachified";
 import { buildCacheKey } from "./utils";
 
 export async function deleteOperation(

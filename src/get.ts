@@ -12,7 +12,7 @@ export async function getOperation(
   if (value === null) {
     return value;
   }
-  const jsonValue = JSON.parse(value);
+  const jsonValue = JSON.parse(value) as unknown;
   return {
     value: jsonValue,
     metadata: metadata!,
