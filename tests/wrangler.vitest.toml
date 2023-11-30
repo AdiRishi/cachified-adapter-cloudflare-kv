@@ -1,0 +1,12 @@
+name = "test-cachified-worker"
+main = "src/index.ts"
+compatibility_date = "2023-11-30"
+
+[vars]
+ENVIRONMENT = 'testing'
+
+[[kv_namespaces]]
+binding = "KV"
+id = "<ignored>"
+preview_id = "<ignored>"
+

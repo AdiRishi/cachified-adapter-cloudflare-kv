@@ -27,12 +27,17 @@ export default defineConfig({
     }),
   ],
   test: {
+    reporters: ["verbose"],
     coverage: {
       enabled: true,
       provider: "v8",
       reporter: ["text", "html", "clover", "json"],
     },
-    environment: "node",
     include: ["tests/*.test.ts", "tests/**/*.test.ts"],
+    environment: "miniflare",
+    environmentOptions: {
+      wranglerConfigPath: "./tests/wrangler.vitest.toml",
+      bindings: { ENVIRONMENT: "testing" },
+    },
   },
 });
