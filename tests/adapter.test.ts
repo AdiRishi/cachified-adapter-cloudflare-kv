@@ -22,8 +22,8 @@ function getUser(userId: number): Promise<{ id: number; name: string; username: 
 const userClass = {
   getUser,
 };
-const STALE_WHILE_REVALIDATE_TIME = 300000; // 5 minutes
-const TTL_TIME = 60000; // 1 minute
+const STALE_WHILE_REVALIDATE_TIME_MS = 300_000; // 5 minutes
+const TTL_TIME_MS = 60_000; // 1 minute
 
 export async function getUserById(userId: number, env: Env) {
   return cachified({
@@ -32,8 +32,8 @@ export async function getUserById(userId: number, env: Env) {
     async getFreshValue() {
       return userClass.getUser(userId);
     },
-    ttl: TTL_TIME, // 1 minute
-    staleWhileRevalidate: STALE_WHILE_REVALIDATE_TIME, // 5 minutes
+    ttl: TTL_TIME_MS,
+    staleWhileRevalidate: STALE_WHILE_REVALIDATE_TIME_MS,
   });
 }
 
@@ -71,8 +71,8 @@ describe("Adapter Integration tests", () => {
     }).toEqual({
       metadata: {
         createdTime: startingSystemTime,
-        swr: STALE_WHILE_REVALIDATE_TIME,
-        ttl: TTL_TIME,
+        swr: STALE_WHILE_REVALIDATE_TIME_MS,
+        ttl: TTL_TIME_MS,
       },
       value: {
         id: 1,
@@ -90,5 +90,41 @@ describe("Adapter Integration tests", () => {
       username: "johndoe",
     });
     expect(getUserMock).toHaveBeenCalledTimes(1);
+  });
+
+  test("should revalidate the cache when stale", async () => {
+    // Initial fetch and cache
+    await getUserById(1, env);
+    expect(getUserMock).toHaveBeenCalledTimes(1);
+    // check cache
+    const { value, metadata } = await env.KV.getWithMetadata<CacheMetadata>("user-1");
+    expect({
+      metadata,
+      value: JSON.parse(value ?? '""') as unknown,
+    }).toEqual({
+      metadata: {
+        createdTime: startingSystemTime,
+        swr: STALE_WHILE_REVALIDATE_TIME_MS,
+        ttl: TTL_TIME_MS,
+      },
+      value: {
+        id: 1,
+        name: "John Doe",
+        username: "johndoe",
+      },
+    });
+    await getUserById(1, env);
+
+    // Move time forward to just before stale time
+    await vi.advanceTimersByTimeAsync(STALE_WHILE_REVALIDATE_TIME_MS - 1);
+    await getUserById(1, env);
+    // Should not re-fetch because it's not stale yet
+    expect(getUserMock).toHaveBeenCalledTimes(1);
+
+    // Move time forward to stale time
+    vi.advanceTimersByTime(1);
+    await getUserById(1, env);
+    // Should re-fetch because it's now stale
+    expect(getUserMock).toHaveBeenCalledTimes(2);
   });
 });
