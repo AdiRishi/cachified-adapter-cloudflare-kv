@@ -59,7 +59,11 @@ export default {
         });
         const userId = Math.floor(Math.random() * 10) + 1;
         const user = await getUserById(userId, env);
-        return new Response(`User data is ${JSON.stringify(user)}`);
+        return new Response(JSON.stringify(user), {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
     },
 };
 ```
