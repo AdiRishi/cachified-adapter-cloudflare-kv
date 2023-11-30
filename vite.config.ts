@@ -36,7 +36,8 @@ export default defineConfig({
     include: ["tests/*.test.ts", "tests/**/*.test.ts"],
     environment: "miniflare",
     environmentOptions: {
-      wranglerConfigPath: "./tests/wrangler.vitest.toml",
+      wranglerConfigPath: "./wrangler.vitest.toml",
+      packagePath: false, // Stop miniflare from looking only in the dist/ folder
       bindings: { ENVIRONMENT: "testing" },
     },
   },

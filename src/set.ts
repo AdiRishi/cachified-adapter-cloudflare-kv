@@ -17,9 +17,9 @@ export async function setOperation(
     expirationTtl = Math.max(Math.ceil(expirationTtl / 1000), 60);
   }
 
-  await kv.put(cacheKey, JSON.stringify(value), {
+  await kv.put(cacheKey, JSON.stringify(value.value), {
     expirationTtl: expirationTtl,
     metadata: value.metadata,
   });
-  return value;
+  return value.value;
 }
