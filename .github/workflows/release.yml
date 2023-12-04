@@ -14,14 +14,16 @@ jobs:
     steps:
       - name: Create Github Token as Changesets-Bot
         id: create_token
-        uses: tibdex/github-app-token@v2
+        uses: actions/create-github-app-token@v1
         with:
-          app_id: ${{ secrets.CHANGESETS_RELEASE_APP_ID }}
-          private_key: ${{ secrets.CHANGESETS_RELEASE_PRIVATE_KEY }}
+          app-id: ${{ secrets.CHANGESETS_RELEASE_APP_ID }}
+          private-key: ${{ secrets.CHANGESETS_RELEASE_PRIVATE_KEY }}
 
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
+          fetch-depth: 0
+          fetch-tags: true
           token: ${{ steps.create_token.outputs.token }}
 
       - name: Setup git user as Changesets Bot
