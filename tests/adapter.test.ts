@@ -1,5 +1,5 @@
 import { cachified, type Cache, type CacheMetadata, CacheEntry } from "@epic-web/cachified";
-import { test, expect, beforeEach, afterEach, vi } from "vitest";
+import { test, expect, beforeEach, afterEach, vi, MockInstance } from "vitest";
 import { cloudflareKvCacheAdapter } from "~/index";
 import { Env as MiniflareEnv, typeAsSpyInstance } from "./helpers";
 
@@ -19,8 +19,14 @@ function getUser(userId: number): Promise<{ id: number; name: string; username: 
   });
 }
 
-const userClass = {
+function validateCache(value: unknown) {
+  void value;
+  return true;
+}
+
+const testHelpers = {
   getUser,
+  validateCache,
 };
 
 export async function getUserById(userId: number, ttl: number, swr: number, env: Env) {
@@ -28,8 +34,9 @@ export async function getUserById(userId: number, ttl: number, swr: number, env:
     key: `user-${userId}`,
     cache: env.CACHIFIED_KV_CACHE,
     async getFreshValue() {
-      return userClass.getUser(userId);
+      return testHelpers.getUser(userId);
     },
+    checkValue: testHelpers.validateCache,
     ttl,
     swr,
   });
@@ -39,7 +46,7 @@ describe("Adapter Integration tests - no swr", () => {
   const TTL_TIME_MS = 60_000; // 1 minute
   let env: Env;
   let startingSystemTime: number;
-  let getUserMock = typeAsSpyInstance(userClass.getUser);
+  let getUserMock = typeAsSpyInstance(testHelpers.getUser);
 
   beforeEach(() => {
     startingSystemTime = new Date("2023-01-01T00:00:00.000Z").valueOf();
@@ -49,7 +56,7 @@ describe("Adapter Integration tests - no swr", () => {
     env.CACHIFIED_KV_CACHE = cloudflareKvCacheAdapter({
       kv: env.KV,
     });
-    getUserMock = vi.spyOn(userClass, "getUser");
+    getUserMock = vi.spyOn(testHelpers, "getUser");
   });
 
   afterEach(() => {
@@ -214,7 +221,7 @@ describe("Adapter Integration tests - with swr", () => {
   const STALE_WHILE_REVALIDATE_TIME_MS = 300_000; // 5 minutes
   let env: Env;
   let startingSystemTime: number;
-  let getUserMock = typeAsSpyInstance(userClass.getUser);
+  let getUserMock = typeAsSpyInstance(testHelpers.getUser);
 
   beforeEach(() => {
     startingSystemTime = new Date("2021-01-01T00:00:00.000Z").valueOf();
@@ -224,7 +231,7 @@ describe("Adapter Integration tests - with swr", () => {
     env.CACHIFIED_KV_CACHE = cloudflareKvCacheAdapter({
       kv: env.KV,
     });
-    getUserMock = vi.spyOn(userClass, "getUser");
+    getUserMock = vi.spyOn(testHelpers, "getUser");
   });
 
   afterEach(() => {
@@ -405,5 +412,91 @@ describe("Adapter Integration tests - with swr", () => {
       },
     });
     expect(getUserMock).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe("Adapter integration tests - delete", () => {
+  const TTL_TIME_MS = 60_000; // 1 minute
+  let env: Env;
+  let startingSystemTime: number;
+  let getUserMock = typeAsSpyInstance(testHelpers.getUser);
+  let checkValueMock = typeAsSpyInstance(testHelpers.validateCache);
+  let deleteMock: MockInstance<[string], unknown>;
+
+  beforeEach(() => {
+    startingSystemTime = new Date("2023-01-01T00:00:00.000Z").valueOf();
+    vi.useFakeTimers();
+    vi.setSystemTime(startingSystemTime);
+    env = getMiniflareBindings();
+    env.CACHIFIED_KV_CACHE = cloudflareKvCacheAdapter({
+      kv: env.KV,
+    });
+    getUserMock = vi.spyOn(testHelpers, "getUser");
+    checkValueMock = vi.spyOn(testHelpers, "validateCache");
+    deleteMock = vi.spyOn(env.CACHIFIED_KV_CACHE, "delete");
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  test('should delete value from cache when checkValue returns "false"', async () => {
+    const user = await getUserById(1, TTL_TIME_MS, 0, env);
+    expect(user).toEqual({
+      id: 1,
+      name: "John Doe",
+      username: "johndoe",
+    });
+
+    const kvFirst = await env.KV.getWithMetadata<CacheMetadata>("user-1");
+    expect({
+      metadata: kvFirst.metadata,
+      value: JSON.parse(kvFirst.value ?? '""') as unknown,
+    }).toEqual({
+      metadata: {
+        createdTime: startingSystemTime,
+        swr: 0,
+        ttl: TTL_TIME_MS,
+      },
+      value: {
+        id: 1,
+        name: "John Doe",
+        username: "johndoe",
+      },
+    });
+    expect(getUserMock).toHaveBeenCalledTimes(1);
+
+    checkValueMock.mockImplementationOnce(() => false);
+    getUserMock.mockImplementationOnce(() =>
+      Promise.resolve({ id: 1, name: "FRESH_OVERRIDE", username: "johndoe" }),
+    );
+
+    const user2 = await getUserById(1, TTL_TIME_MS, 0, env);
+    expect(user2).toEqual({
+      id: 1,
+      name: "FRESH_OVERRIDE",
+      username: "johndoe",
+    });
+
+    // The cache should be deleted
+    expect(deleteMock).toHaveBeenCalledTimes(1);
+
+    // The cache should have been updated
+    const kvSecond = await env.KV.getWithMetadata<CacheMetadata>("user-1");
+    expect({
+      metadata: kvSecond.metadata,
+      value: JSON.parse(kvSecond.value ?? '""') as unknown,
+    }).toEqual({
+      metadata: {
+        createdTime: startingSystemTime,
+        swr: 0,
+        ttl: TTL_TIME_MS,
+      },
+      value: {
+        id: 1,
+        name: "FRESH_OVERRIDE",
+        username: "johndoe",
+      },
+    });
   });
 });
