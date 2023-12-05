@@ -10,7 +10,7 @@ export async function setOperation(
 ): Promise<unknown> {
   const cacheKey = buildCacheKey(key, keyPrefix);
 
-  let expirationTtl: number | undefined = totalTtl(value?.metadata);
+  let expirationTtl: number | undefined = totalTtl(value.metadata);
   if (expirationTtl === Infinity) {
     expirationTtl = undefined;
   } else {
