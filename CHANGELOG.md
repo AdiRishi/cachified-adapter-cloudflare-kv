@@ -1,5 +1,14 @@
 # cachified-adapter-cloudflare-kv
 
+## 1.0.1
+
+### Patch Changes
+
+- deed297: Improve documentation and unit test coverage
+
+  - Greatly improved adapter integration tests
+  - Improve README documentation
+
 ## 1.0.0
 
 ### Major Changes
