@@ -6,7 +6,7 @@
 
 <div align="center">
 
-[![CI](https://github.com/AdiRishi/cachified-adapter-cloudflare-kv/actions/workflows/ci.yml/badge.svg)](https://github.com/AdiRishi/cachified-adapter-cloudflare-kv/actions/workflows/ci.yml) [![npm version](https://img.shields.io/npm/v/cachified-adapter-cloudflare-kv.svg?style=flat)](https://www.npmjs.com/package/cachified-adapter-cloudflare-kv) ![GitHub License](https://img.shields.io/github/license/AdiRishi/cachified-adapter-cloudflare-kv) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.github/CONTRIBUTING.md)
+[![CI](https://github.com/AdiRishi/cachified-adapter-cloudflare-kv/actions/workflows/ci.yml/badge.svg)](https://github.com/AdiRishi/cachified-adapter-cloudflare-kv/actions/workflows/ci.yml) [![npm version](https://img.shields.io/npm/v/cachified-adapter-cloudflare-kv.svg?style=flat)](https://www.npmjs.com/package/cachified-adapter-cloudflare-kv) [![Coverage Status](https://coveralls.io/repos/github/AdiRishi/cachified-adapter-cloudflare-kv/badge.svg)](https://coveralls.io/github/AdiRishi/cachified-adapter-cloudflare-kv) ![GitHub License](https://img.shields.io/github/license/AdiRishi/cachified-adapter-cloudflare-kv) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.github/CONTRIBUTING.md)
 
 </div>
 
