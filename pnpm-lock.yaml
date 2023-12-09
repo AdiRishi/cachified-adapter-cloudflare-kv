@@ -33,8 +33,8 @@ devDependencies:
     specifier: ^1.0.2
     version: 1.0.2(vitest@1.0.2)
   '@vitest/ui':
-    specifier: ^1.0.2
-    version: 1.0.2(vitest@1.0.2)
+    specifier: ^1.0.3
+    version: 1.0.3(vitest@1.0.2)
   eslint:
     specifier: ^8.55.0
     version: 8.55.0
@@ -58,7 +58,7 @@ devDependencies:
     version: 5.0.7(@types/node@20.10.4)
   vitest:
     specifier: ^1.0.2
-    version: 1.0.2(@types/node@20.10.4)(@vitest/ui@1.0.2)
+    version: 1.0.2(@types/node@20.10.4)(@vitest/ui@1.0.3)
   vitest-environment-miniflare:
     specifier: ^2.14.1
     version: 2.14.1(vitest@1.0.2)
@@ -1257,7 +1257,7 @@ packages:
       std-env: 3.6.0
       test-exclude: 6.0.0
       v8-to-istanbul: 9.2.0
-      vitest: 1.0.2(@types/node@20.10.4)(@vitest/ui@1.0.2)
+      vitest: 1.0.2(@types/node@20.10.4)(@vitest/ui@1.0.3)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1292,23 +1292,31 @@ packages:
       tinyspy: 2.2.0
     dev: true
 
-  /@vitest/ui@1.0.2(vitest@1.0.2):
-    resolution: {integrity: sha512-8qFmXDsH5IWVA8B+F00G8Iq6jroSVWO/DrEquhB2K/khpdVbq1i2ufBGdNginv6m9x9Hw2y6kIWHltpOFRG+3A==}
+  /@vitest/ui@1.0.3(vitest@1.0.2):
+    resolution: {integrity: sha512-0K4i75iD1z9MOob3g0S+DBOSyOsrZtn5czvhROYNNzfYTx1FhDMRtRkx393Iim0bixPxN4jf3dwMIkhaDKhf7A==}
     peerDependencies:
       vitest: ^1.0.0
     dependencies:
-      '@vitest/utils': 1.0.2
+      '@vitest/utils': 1.0.3
       fast-glob: 3.3.2
       fflate: 0.8.1
       flatted: 3.2.9
       pathe: 1.1.1
       picocolors: 1.0.0
       sirv: 2.0.3
-      vitest: 1.0.2(@types/node@20.10.4)(@vitest/ui@1.0.2)
+      vitest: 1.0.2(@types/node@20.10.4)(@vitest/ui@1.0.3)
     dev: true
 
   /@vitest/utils@1.0.2:
     resolution: {integrity: sha512-GPQkGHAnFAP/+seSbB9pCsj339yRrMgILoI5H2sPevTLCYgBq0VRjF8QSllmnQyvf0EontF6KUIt2t5s2SmqoQ==}
+    dependencies:
+      diff-sequences: 29.6.3
+      loupe: 2.3.7
+      pretty-format: 29.7.0
+    dev: true
+
+  /@vitest/utils@1.0.3:
+    resolution: {integrity: sha512-ddGKC6CVjxwjA+ourSlMD6Emc+PhIH6+d25ISGBOQjryXi2NtKpsBSOt1yDT793c2Tqij8g8BBxe87jam3B95w==}
     dependencies:
       diff-sequences: 29.6.3
       loupe: 2.3.7
@@ -3843,13 +3851,13 @@ packages:
       '@miniflare/shared': 2.14.1
       '@miniflare/shared-test-environment': 2.14.1
       undici: 5.20.0
-      vitest: 1.0.2(@types/node@20.10.4)(@vitest/ui@1.0.2)
+      vitest: 1.0.2(@types/node@20.10.4)(@vitest/ui@1.0.3)
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
     dev: true
 
-  /vitest@1.0.2(@types/node@20.10.4)(@vitest/ui@1.0.2):
+  /vitest@1.0.2(@types/node@20.10.4)(@vitest/ui@1.0.3):
     resolution: {integrity: sha512-F3NVwwpXfRSDnJmyv+ALPwSRVt0zDkRRE18pwUHSUPXAlWQ47rY1dc99ziMW5bBHyqwK2ERjMisLNoef64qk9w==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -3879,7 +3887,7 @@ packages:
       '@vitest/runner': 1.0.2
       '@vitest/snapshot': 1.0.2
       '@vitest/spy': 1.0.2
-      '@vitest/ui': 1.0.2(vitest@1.0.2)
+      '@vitest/ui': 1.0.3(vitest@1.0.2)
       '@vitest/utils': 1.0.2
       acorn-walk: 8.3.0
       cac: 6.7.14
