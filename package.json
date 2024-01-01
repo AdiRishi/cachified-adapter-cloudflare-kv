@@ -66,7 +66,7 @@
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.1.1",
-    "rollup-plugin-typescript-paths": "^1.4.0",
+    "rollup-plugin-typescript-paths": "^1.5.0",
     "tslib": "^2.6.2",
     "typescript": "^5.3.3",
     "vite": "^5.0.10",

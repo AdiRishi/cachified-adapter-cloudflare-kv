@@ -45,8 +45,8 @@ devDependencies:
     specifier: ^3.1.1
     version: 3.1.1
   rollup-plugin-typescript-paths:
-    specifier: ^1.4.0
-    version: 1.4.0(typescript@5.3.3)
+    specifier: ^1.5.0
+    version: 1.5.0(typescript@5.3.3)
   tslib:
     specifier: ^2.6.2
     version: 2.6.2
@@ -3226,8 +3226,8 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rollup-plugin-typescript-paths@1.4.0(typescript@5.3.3):
-    resolution: {integrity: sha512-6EgeLRjTVmymftEyCuYu91XzY5XMB5lR0YrJkeT0D7OG2RGSdbNL+C/hfPIdc/sjMa9Sl5NLsxIr6C/+/5EUpA==}
+  /rollup-plugin-typescript-paths@1.5.0(typescript@5.3.3):
+    resolution: {integrity: sha512-zly2aiGNjYJNq5YUi6eyGrQnCYUQ8b5czOtHZIGriwG9U3Ba2F9hlSklafXCdsNulK/IlNmE0Kzj0h+fVV32pA==}
     peerDependencies:
       typescript: '>=3.4'
     dependencies:
