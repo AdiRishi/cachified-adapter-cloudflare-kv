@@ -21,8 +21,7 @@ module.exports = {
       },
     },
   },
-  plugins: ["@typescript-eslint", "prettier"],
-  ignorePatterns: [".eslintrc.json"],
+  plugins: ["@typescript-eslint"],
   rules: {
     "@typescript-eslint/no-unused-vars": [
       "error",
