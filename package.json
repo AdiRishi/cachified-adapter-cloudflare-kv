@@ -61,8 +61,8 @@
     "@types/node": "^20.11.5",
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.19.0",
-    "@vitest/coverage-v8": "^1.2.0",
-    "@vitest/ui": "^1.2.0",
+    "@vitest/coverage-v8": "^1.2.1",
+    "@vitest/ui": "^1.2.1",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.2.4",
@@ -70,7 +70,7 @@
     "tslib": "^2.6.2",
     "typescript": "^5.3.3",
     "vite": "^5.0.11",
-    "vitest": "^1.2.0",
+    "vitest": "^1.2.1",
     "vitest-environment-miniflare": "^2.14.2"
   },
   "peerDependencies": {
