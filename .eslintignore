@@ -5,3 +5,4 @@ pnpm-lock.yaml
 CHANGELOG.md
 coverage
 vite.config.ts
+.eslintrc.cjs

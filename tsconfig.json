@@ -23,9 +23,9 @@
     /* Path aliases */
     "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"]
-    }
+      "~/*": ["src/*"],
+    },
   },
   "include": ["src", "tests"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist"],
 }
