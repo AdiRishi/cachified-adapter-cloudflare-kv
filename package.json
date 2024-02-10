@@ -78,7 +78,7 @@
   },
   "peerDependencies": {
     "@cloudflare/workers-types": "^4.20240208.0",
-    "@epic-web/cachified": "^5.0.0"
+    "@epic-web/cachified": "^5.1.1"
   },
   "peerDependenciesMeta": {
     "@cloudflare/workers-types": {
