@@ -1,5 +1,19 @@
 # cachified-adapter-cloudflare-kv
 
+## 2.0.0
+
+### Major Changes
+
+- 4be40a6: Bump @epic-web/cachified peer dependency to ^5.0.0
+
+  While there are no breaking changes to this package, @epic-web/cachified has a few breaking changes in their 5.0.0 release.
+  Please see https://github.com/epicweb-dev/cachified/releases/tag/v5.0.0 for more information.
+
+### Minor Changes
+
+- 4be40a6: Add generics to the cloudflare cache implementation
+  This is in an effort to match the behavior of @epic-web/cachified since 5.1.0
+
 ## 1.0.1
 
 ### Patch Changes
