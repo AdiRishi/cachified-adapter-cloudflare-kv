@@ -42,12 +42,15 @@
     "node": ">=18",
     "pnpm": ">=8"
   },
+  "publishConfig": {
+    "provenance": true
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
-    "lint": "prettier --check . && eslint . --ext .ts,.js,.cjs,.mjs",
+    "lint": "eslint . && prettier --check . ",
     "test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 vitest run",
     "test:ui": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 vitest --ui",
     "format": "prettier --write ."
@@ -55,7 +58,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
     "@cloudflare/workers-types": "^4.20240208.0",
-    "@epic-web/cachified": "^4.0.0",
+    "@epic-web/cachified": "^5.1.1",
     "@rollup/plugin-typescript": "^11.1.6",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^20.11.17",
@@ -75,7 +78,7 @@
   },
   "peerDependencies": {
     "@cloudflare/workers-types": "^4.20240208.0",
-    "@epic-web/cachified": "^4.0.0"
+    "@epic-web/cachified": "^5.0.0"
   },
   "peerDependenciesMeta": {
     "@cloudflare/workers-types": {
