@@ -21,14 +21,16 @@ export type CloudflareKvCacheConfig = {
  * @param {CloudflareKvCacheConfig} config - Configuration options for the cache adapter.
  * @returns {Cache} A cache adapter instance for Cloudflare KV.
  */
-export function cloudflareKvCacheAdapter(config: CloudflareKvCacheConfig): Cache {
+export function cloudflareKvCacheAdapter<Value = unknown>(
+  config: CloudflareKvCacheConfig,
+): Cache<Value> {
   return {
     name: config.name ?? "CloudflareKV",
     get: async (key) => {
-      return getOperation(config.kv, key, config.keyPrefix);
+      return getOperation<Value>(config.kv, key, config.keyPrefix);
     },
     set: async (key, value) => {
-      return await setOperation(config.kv, key, value, config.keyPrefix);
+      return await setOperation<Value>(config.kv, key, value, config.keyPrefix);
     },
     delete: async (key) => {
       await deleteOperation(config.kv, key, config.keyPrefix);
