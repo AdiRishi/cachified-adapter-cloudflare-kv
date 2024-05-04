@@ -1,5 +1,11 @@
 # cachified-adapter-cloudflare-kv
 
+## 2.2.0
+
+### Minor Changes
+
+- [#167](https://github.com/AdiRishi/cachified-adapter-cloudflare-kv/pull/167) [`8547aa0`](https://github.com/AdiRishi/cachified-adapter-cloudflare-kv/commit/8547aa0494ae834fd9b00c16e6d1dda22354e284) Thanks [@AdiRishi](https://github.com/AdiRishi)! - Update Cloudflare worker types to the recommended default compatibility date of 2023-07-01
+
 ## 2.1.0
 
 ### Minor Changes
