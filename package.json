@@ -85,5 +85,6 @@
     "@cloudflare/workers-types": {
       "optional": true
     }
-  }
+  },
+  "packageManager": "pnpm@9.0.6"
 }
