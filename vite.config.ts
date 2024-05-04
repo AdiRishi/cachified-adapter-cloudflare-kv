@@ -1,8 +1,8 @@
 /// <reference types="vitest" />
-import typescript from "@rollup/plugin-typescript";
 import path from "path";
 import { typescriptPaths } from "rollup-plugin-typescript-paths";
 import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
 export default defineConfig({
   build: {
@@ -19,7 +19,7 @@ export default defineConfig({
       external: ["@epic-web/cachified", "@cloudflare/workers-types"],
     },
   },
-  plugins: [typescriptPaths(), typescript()],
+  plugins: [typescriptPaths(), dts({ rollupTypes: true })],
   test: {
     reporters: ["verbose"],
     coverage: {

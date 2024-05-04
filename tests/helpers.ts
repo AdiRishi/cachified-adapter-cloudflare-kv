@@ -1,4 +1,4 @@
-import { KVNamespace } from "@cloudflare/workers-types";
+import { KVNamespace } from "@cloudflare/workers-types/2023-07-01";
 import { SpyInstance } from "vitest";
 
 export type Env = {

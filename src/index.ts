@@ -1,4 +1,4 @@
-import type { KVNamespace } from "@cloudflare/workers-types";
+import type { KVNamespace } from "@cloudflare/workers-types/2023-07-01";
 import { type Cache } from "@epic-web/cachified";
 import { deleteOperation } from "./delete";
 import { getOperation } from "./get";
