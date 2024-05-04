@@ -1,8 +1,8 @@
 /// <reference types="vitest" />
-import dts from 'vite-plugin-dts';
 import path from "path";
 import { typescriptPaths } from "rollup-plugin-typescript-paths";
 import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
 export default defineConfig({
   build: {
