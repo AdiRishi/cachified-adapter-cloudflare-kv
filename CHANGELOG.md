@@ -1,5 +1,11 @@
 # cachified-adapter-cloudflare-kv
 
+## 2.2.1
+
+### Patch Changes
+
+- [`dbeff54`](https://github.com/AdiRishi/cachified-adapter-cloudflare-kv/commit/dbeff540c0b984334c06c40d8c87a3a6f1479dc2) Thanks [@AdiRishi](https://github.com/AdiRishi)! - Bump version due to bug in CI/CD pipeline
+
 ## 2.2.0
 
 ### Minor Changes
