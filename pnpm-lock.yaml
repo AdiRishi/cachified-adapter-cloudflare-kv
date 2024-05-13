@@ -15,8 +15,8 @@ importers:
         specifier: ^2.27.1
         version: 2.27.1
       '@cloudflare/workers-types':
-        specifier: ^4.20240502.0
-        version: 4.20240502.0
+        specifier: ^4.20240512.0
+        version: 4.20240512.0
       '@epic-web/cachified':
         specifier: ^5.2.0
         version: 5.2.0
@@ -204,8 +204,8 @@ packages:
   '@changesets/write@0.3.0':
     resolution: {integrity: sha512-slGLb21fxZVUYbyea+94uFiD6ntQW0M2hIKNznFizDhZPDgn2c/fv1UzzlW43RVzh1BEDuIqW6hzlJ1OflNmcw==}
 
-  '@cloudflare/workers-types@4.20240502.0':
-    resolution: {integrity: sha512-OB1jIyPOzyOcuZFHWhsQnkRLN6u8+jmU9X3T4KZlGgn3Ivw8pBiswhLOp+yFeChR3Y4/5+V0hPFRko5SReordg==}
+  '@cloudflare/workers-types@4.20240512.0':
+    resolution: {integrity: sha512-o2yTEWg+YK/I1t/Me+dA0oarO0aCbjibp6wSeaw52DSE9tDyKJ7S+Qdyw/XsMrKn4t8kF6f/YOba+9O4MJfW9w==}
 
   '@epic-web/cachified@5.2.0':
     resolution: {integrity: sha512-E/2LdIhS/wcn3ykV+u5xbTFahKtzReO0k4/cVtE7KBYiLCgR6bPRmlDUuyfWhbZX3zOmK+6OL7qdHkvgCWwSiA==}
@@ -2735,7 +2735,7 @@ snapshots:
       human-id: 1.0.2
       prettier: 2.8.8
 
-  '@cloudflare/workers-types@4.20240502.0': {}
+  '@cloudflare/workers-types@4.20240512.0': {}
 
   '@epic-web/cachified@5.2.0': {}
 
@@ -2980,7 +2980,7 @@ snapshots:
 
   '@miniflare/shared-test-environment@2.14.2':
     dependencies:
-      '@cloudflare/workers-types': 4.20240502.0
+      '@cloudflare/workers-types': 4.20240512.0
       '@miniflare/cache': 2.14.2
       '@miniflare/core': 2.14.2
       '@miniflare/d1': 2.14.2
