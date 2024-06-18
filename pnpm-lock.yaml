@@ -27,8 +27,8 @@ importers:
         specifier: ^4.3.0
         version: 4.3.0(prettier@3.3.2)
       '@types/node':
-        specifier: ^20.14.4
-        version: 20.14.4
+        specifier: ^20.14.5
+        version: 20.14.5
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.13.1
         version: 7.13.1(@typescript-eslint/parser@7.13.1(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)
@@ -37,7 +37,7 @@ importers:
         version: 7.13.1(eslint@8.57.0)(typescript@5.4.5)
       '@vitest/coverage-v8':
         specifier: ^1.6.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.14.4)(@vitest/ui@1.6.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.14.5)(@vitest/ui@1.6.0))
       '@vitest/ui':
         specifier: ^1.6.0
         version: 1.6.0(vitest@1.6.0)
@@ -61,16 +61,16 @@ importers:
         version: 5.4.5
       vite:
         specifier: ^5.3.1
-        version: 5.3.1(@types/node@20.14.4)
+        version: 5.3.1(@types/node@20.14.5)
       vite-plugin-dts:
         specifier: ^3.9.1
-        version: 3.9.1(@types/node@20.14.4)(rollup@4.17.2)(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.4))
+        version: 3.9.1(@types/node@20.14.5)(rollup@4.17.2)(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.5))
       vitest:
         specifier: ^1.6.0
-        version: 1.6.0(@types/node@20.14.4)(@vitest/ui@1.6.0)
+        version: 1.6.0(@types/node@20.14.5)(@vitest/ui@1.6.0)
       vitest-environment-miniflare:
         specifier: ^2.14.2
-        version: 2.14.2(vitest@1.6.0(@types/node@20.14.4)(@vitest/ui@1.6.0))
+        version: 2.14.2(vitest@1.6.0(@types/node@20.14.5)(@vitest/ui@1.6.0))
 
 packages:
 
@@ -664,8 +664,8 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@20.14.4':
-    resolution: {integrity: sha512-1ChboN+57suCT2t/f8lwtPY/k3qTpuD/qnqQuYoBg6OQOcPyaw7PiZVdGpaZYAvhDDtqrt0oAaM8+oSu1xsUGw==}
+  '@types/node@20.14.5':
+    resolution: {integrity: sha512-aoRR+fJkZT2l0aGOJhuA8frnCSoNX6W7U2mpNq63+BxBIj5BQFt8rHy627kijCmm63ijdSdwvGgpUsU6MBsZZA==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -2900,23 +2900,23 @@ snapshots:
       globby: 11.1.0
       read-yaml-file: 1.1.0
 
-  '@microsoft/api-extractor-model@7.28.13(@types/node@20.14.4)':
+  '@microsoft/api-extractor-model@7.28.13(@types/node@20.14.5)':
     dependencies:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 4.0.2(@types/node@20.14.4)
+      '@rushstack/node-core-library': 4.0.2(@types/node@20.14.5)
     transitivePeerDependencies:
       - '@types/node'
 
-  '@microsoft/api-extractor@7.43.0(@types/node@20.14.4)':
+  '@microsoft/api-extractor@7.43.0(@types/node@20.14.5)':
     dependencies:
-      '@microsoft/api-extractor-model': 7.28.13(@types/node@20.14.4)
+      '@microsoft/api-extractor-model': 7.28.13(@types/node@20.14.5)
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 4.0.2(@types/node@20.14.4)
+      '@rushstack/node-core-library': 4.0.2(@types/node@20.14.5)
       '@rushstack/rig-package': 0.5.2
-      '@rushstack/terminal': 0.10.0(@types/node@20.14.4)
-      '@rushstack/ts-command-line': 4.19.1(@types/node@20.14.4)
+      '@rushstack/terminal': 0.10.0(@types/node@20.14.5)
+      '@rushstack/ts-command-line': 4.19.1(@types/node@20.14.5)
       lodash: 4.17.21
       minimatch: 3.0.8
       resolve: 1.22.8
@@ -3126,7 +3126,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.17.2':
     optional: true
 
-  '@rushstack/node-core-library@4.0.2(@types/node@20.14.4)':
+  '@rushstack/node-core-library@4.0.2(@types/node@20.14.5)':
     dependencies:
       fs-extra: 7.0.1
       import-lazy: 4.0.0
@@ -3135,23 +3135,23 @@ snapshots:
       semver: 7.5.4
       z-schema: 5.0.5
     optionalDependencies:
-      '@types/node': 20.14.4
+      '@types/node': 20.14.5
 
   '@rushstack/rig-package@0.5.2':
     dependencies:
       resolve: 1.22.8
       strip-json-comments: 3.1.1
 
-  '@rushstack/terminal@0.10.0(@types/node@20.14.4)':
+  '@rushstack/terminal@0.10.0(@types/node@20.14.5)':
     dependencies:
-      '@rushstack/node-core-library': 4.0.2(@types/node@20.14.4)
+      '@rushstack/node-core-library': 4.0.2(@types/node@20.14.5)
       supports-color: 8.1.1
     optionalDependencies:
-      '@types/node': 20.14.4
+      '@types/node': 20.14.5
 
-  '@rushstack/ts-command-line@4.19.1(@types/node@20.14.4)':
+  '@rushstack/ts-command-line@4.19.1(@types/node@20.14.5)':
     dependencies:
-      '@rushstack/terminal': 0.10.0(@types/node@20.14.4)
+      '@rushstack/terminal': 0.10.0(@types/node@20.14.5)
       '@types/argparse': 1.0.38
       argparse: 1.0.10
       string-argv: 0.3.2
@@ -3176,7 +3176,7 @@ snapshots:
 
   '@types/better-sqlite3@7.6.10':
     dependencies:
-      '@types/node': 20.14.4
+      '@types/node': 20.14.5
 
   '@types/estree@1.0.5': {}
 
@@ -3184,7 +3184,7 @@ snapshots:
 
   '@types/node@12.20.55': {}
 
-  '@types/node@20.14.4':
+  '@types/node@20.14.5':
     dependencies:
       undici-types: 5.26.5
 
@@ -3275,7 +3275,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitest/coverage-v8@1.6.0(vitest@1.6.0(@types/node@20.14.4)(@vitest/ui@1.6.0))':
+  '@vitest/coverage-v8@1.6.0(vitest@1.6.0(@types/node@20.14.5)(@vitest/ui@1.6.0))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -3290,7 +3290,7 @@ snapshots:
       std-env: 3.7.0
       strip-literal: 2.1.0
       test-exclude: 6.0.0
-      vitest: 1.6.0(@types/node@20.14.4)(@vitest/ui@1.6.0)
+      vitest: 1.6.0(@types/node@20.14.5)(@vitest/ui@1.6.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -3325,7 +3325,7 @@ snapshots:
       pathe: 1.1.2
       picocolors: 1.0.0
       sirv: 2.0.4
-      vitest: 1.6.0(@types/node@20.14.4)(@vitest/ui@1.6.0)
+      vitest: 1.6.0(@types/node@20.14.5)(@vitest/ui@1.6.0)
 
   '@vitest/utils@1.6.0':
     dependencies:
@@ -4960,13 +4960,13 @@ snapshots:
 
   validator@13.11.0: {}
 
-  vite-node@1.6.0(@types/node@20.14.4):
+  vite-node@1.6.0(@types/node@20.14.5):
     dependencies:
       cac: 6.7.14
       debug: 4.3.4
       pathe: 1.1.2
       picocolors: 1.0.0
-      vite: 5.3.1(@types/node@20.14.4)
+      vite: 5.3.1(@types/node@20.14.5)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -4977,9 +4977,9 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-dts@3.9.1(@types/node@20.14.4)(rollup@4.17.2)(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.4)):
+  vite-plugin-dts@3.9.1(@types/node@20.14.5)(rollup@4.17.2)(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.5)):
     dependencies:
-      '@microsoft/api-extractor': 7.43.0(@types/node@20.14.4)
+      '@microsoft/api-extractor': 7.43.0(@types/node@20.14.5)
       '@rollup/pluginutils': 5.1.0(rollup@4.17.2)
       '@vue/language-core': 1.8.27(typescript@5.4.5)
       debug: 4.3.4
@@ -4988,34 +4988,34 @@ snapshots:
       typescript: 5.4.5
       vue-tsc: 1.8.27(typescript@5.4.5)
     optionalDependencies:
-      vite: 5.3.1(@types/node@20.14.4)
+      vite: 5.3.1(@types/node@20.14.5)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
 
-  vite@5.3.1(@types/node@20.14.4):
+  vite@5.3.1(@types/node@20.14.5):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.38
       rollup: 4.17.2
     optionalDependencies:
-      '@types/node': 20.14.4
+      '@types/node': 20.14.5
       fsevents: 2.3.3
 
-  vitest-environment-miniflare@2.14.2(vitest@1.6.0(@types/node@20.14.4)(@vitest/ui@1.6.0)):
+  vitest-environment-miniflare@2.14.2(vitest@1.6.0(@types/node@20.14.5)(@vitest/ui@1.6.0)):
     dependencies:
       '@miniflare/queues': 2.14.2
       '@miniflare/runner-vm': 2.14.2
       '@miniflare/shared': 2.14.2
       '@miniflare/shared-test-environment': 2.14.2
       undici: 5.28.2
-      vitest: 1.6.0(@types/node@20.14.4)(@vitest/ui@1.6.0)
+      vitest: 1.6.0(@types/node@20.14.5)(@vitest/ui@1.6.0)
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
 
-  vitest@1.6.0(@types/node@20.14.4)(@vitest/ui@1.6.0):
+  vitest@1.6.0(@types/node@20.14.5)(@vitest/ui@1.6.0):
     dependencies:
       '@vitest/expect': 1.6.0
       '@vitest/runner': 1.6.0
@@ -5034,11 +5034,11 @@ snapshots:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.3.1(@types/node@20.14.4)
-      vite-node: 1.6.0(@types/node@20.14.4)
+      vite: 5.3.1(@types/node@20.14.5)
+      vite-node: 1.6.0(@types/node@20.14.5)
       why-is-node-running: 2.2.2
     optionalDependencies:
-      '@types/node': 20.14.4
+      '@types/node': 20.14.5
       '@vitest/ui': 1.6.0(vitest@1.6.0)
     transitivePeerDependencies:
       - less
