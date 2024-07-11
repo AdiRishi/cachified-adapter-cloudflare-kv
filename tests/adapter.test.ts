@@ -421,7 +421,7 @@ describe("Adapter integration tests - delete", () => {
   let startingSystemTime: number;
   let getUserMock = typeAsSpyInstance(testHelpers.getUser);
   let checkValueMock = typeAsSpyInstance(testHelpers.validateCache);
-  let deleteMock: MockInstance<[string], unknown>;
+  let deleteMock: MockInstance<typeof env.CACHIFIED_KV_CACHE.delete>;
 
   beforeEach(() => {
     startingSystemTime = new Date("2023-01-01T00:00:00.000Z").valueOf();

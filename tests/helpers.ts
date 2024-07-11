@@ -1,5 +1,5 @@
 import { KVNamespace } from "@cloudflare/workers-types/2023-07-01";
-import { SpyInstance } from "vitest";
+import { MockInstance } from "vitest";
 
 export type Env = {
   KV: KVNamespace;
@@ -8,8 +8,6 @@ export type Env = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Procedure = (...args: any[]) => any;
 
-export function typeAsSpyInstance<T extends Procedure>(
-  fn: T,
-): SpyInstance<Parameters<T>, ReturnType<T>> {
-  return fn as unknown as SpyInstance<Parameters<typeof fn>, ReturnType<typeof fn>>;
+export function typeAsSpyInstance<T extends Procedure>(fn: T): MockInstance<T> {
+  return fn as unknown as MockInstance<T>;
 }
