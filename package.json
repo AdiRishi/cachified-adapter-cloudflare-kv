@@ -50,8 +50,8 @@
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
     "lint": "eslint . && prettier --check . ",
-    "test": "vitest run",
-    "test:ui": "vitest --ui",
+    "test": "vitest run --coverage",
+    "test:ui": "vitest --coverage --ui",
     "format": "prettier --write ."
   },
   "devDependencies": {
