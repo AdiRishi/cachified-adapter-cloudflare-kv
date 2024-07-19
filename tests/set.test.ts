@@ -1,16 +1,14 @@
 import { CacheEntry, CacheMetadata } from "@epic-web/cachified";
-import { test, expect, beforeEach } from "vitest";
+import { env as miniflareTestEnv } from "cloudflare:test";
+import { describe, test, expect, beforeEach } from "vitest";
 import { setOperation } from "~/set";
 import { buildCacheKey } from "~/utils";
-import type { Env } from "./helpers";
-
-const describe = setupMiniflareIsolatedStorage();
 
 describe("setOperation() tests", () => {
-  let env: Env;
+  let env: typeof miniflareTestEnv;
 
   beforeEach(() => {
-    env = getMiniflareBindings();
+    env = miniflareTestEnv;
   });
 
   test("should store a value with no key prefix", async () => {

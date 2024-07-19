@@ -6,7 +6,7 @@
     "module": "ESNext",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
-    "types": ["vitest-environment-miniflare/globals"],
+    "types": ["@cloudflare/vitest-pool-workers"],
     "sourceMap": true,
     "declaration": true,
     "outDir": "dist",
@@ -26,6 +26,6 @@
       "~/*": ["src/*"]
     }
   },
-  "include": ["src", "tests"],
+  "include": ["src", "tests", "vitest-env.d.ts"],
   "exclude": ["node_modules", "dist"]
 }

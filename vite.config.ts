@@ -1,10 +1,10 @@
 /// <reference types="vitest" />
+import { defineWorkersConfig } from "@cloudflare/vitest-pool-workers/config";
 import path from "path";
 import { typescriptPaths } from "rollup-plugin-typescript-paths";
-import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
-export default defineConfig({
+export default defineWorkersConfig({
   build: {
     sourcemap: true,
     minify: false,
@@ -21,18 +21,22 @@ export default defineConfig({
   },
   plugins: [typescriptPaths(), dts({ rollupTypes: true })],
   test: {
+    poolOptions: {
+      workers: {
+        miniflare: {
+          bindings: {
+            ENVIRONMENT: "testing",
+          },
+        },
+        wrangler: {
+          configPath: "./wrangler.vitest.toml",
+        },
+      },
+    },
     reporters: ["verbose"],
     coverage: {
-      enabled: true,
-      provider: "v8",
+      provider: "istanbul",
       reporter: ["text", "html", "clover", "json"],
-    },
-    include: ["tests/*.test.ts", "tests/**/*.test.ts"],
-    environment: "miniflare",
-    environmentOptions: {
-      wranglerConfigPath: "./wrangler.vitest.toml",
-      packagePath: false, // Stop miniflare from looking only in the dist/ folder
-      bindings: { ENVIRONMENT: "testing" },
     },
   },
 });

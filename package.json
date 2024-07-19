@@ -50,13 +50,14 @@
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
     "lint": "eslint . && prettier --check . ",
-    "test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 vitest run",
-    "test:ui": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 vitest --ui",
+    "test": "vitest run",
+    "test:ui": "vitest --ui",
     "format": "prettier --write ."
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.7",
+    "@cloudflare/vitest-pool-workers": "0.4.12",
     "@cloudflare/workers-types": "^4.20240718.0",
     "@epic-web/cachified": "^5.2.0",
     "@rollup/plugin-typescript": "^11.1.6",
@@ -64,8 +65,8 @@
     "@types/node": "^20.14.11",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
     "@typescript-eslint/parser": "^7.16.1",
-    "@vitest/coverage-v8": "^2.0.3",
-    "@vitest/ui": "^2.0.3",
+    "@vitest/coverage-istanbul": "1.5.3",
+    "@vitest/ui": "1.5.3",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.3.3",
@@ -74,8 +75,7 @@
     "typescript": "^5.5.3",
     "vite": "^5.3.4",
     "vite-plugin-dts": "^3.9.1",
-    "vitest": "^2.0.3",
-    "vitest-environment-miniflare": "^2.14.2"
+    "vitest": "1.5.3"
   },
   "peerDependencies": {
     "@cloudflare/workers-types": "^4.20240718.0",

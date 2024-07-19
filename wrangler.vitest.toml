@@ -2,6 +2,8 @@ name = "test-cachified-worker"
 main = "src/index.ts"
 compatibility_date = "2023-11-30"
 
+compatibility_flags = ["nodejs_compat"]
+
 [vars]
 ENVIRONMENT = 'testing'
 
@@ -9,4 +11,3 @@ ENVIRONMENT = 'testing'
 binding = "KV"
 id = "<ignored>"
 preview_id = "<ignored>"
-
