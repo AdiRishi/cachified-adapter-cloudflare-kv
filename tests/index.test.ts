@@ -1,14 +1,12 @@
-import { test, expect, beforeEach } from "vitest";
+import { env as miniflareTestEnv } from "cloudflare:test";
+import { describe, test, expect, beforeEach } from "vitest";
 import { cloudflareKvCacheAdapter } from "~/index";
-import type { Env } from "./helpers";
-
-const describe = setupMiniflareIsolatedStorage();
 
 describe("Adapter creation() tests", () => {
-  let env: Env;
+  let env: typeof miniflareTestEnv;
 
   beforeEach(() => {
-    env = getMiniflareBindings();
+    env = miniflareTestEnv;
   });
 
   test("should correctly set cache name", () => {

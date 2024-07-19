@@ -1,15 +1,13 @@
-import { test, expect, beforeEach } from "vitest";
+import { env as miniflareTestEnv } from "cloudflare:test";
+import { describe, test, expect, beforeEach } from "vitest";
 import { deleteOperation } from "~/delete";
 import { buildCacheKey } from "~/utils";
-import type { Env } from "./helpers";
-
-const describe = setupMiniflareIsolatedStorage();
 
 describe("deleteOperation() tests", () => {
-  let env: Env;
+  let env: typeof miniflareTestEnv;
 
   beforeEach(() => {
-    env = getMiniflareBindings();
+    env = miniflareTestEnv;
   });
 
   test("should delete a value with no key prefix", async () => {

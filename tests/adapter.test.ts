@@ -1,10 +1,10 @@
 import { cachified, type Cache, type CacheMetadata, CacheEntry } from "@epic-web/cachified";
-import { test, expect, beforeEach, afterEach, vi, MockInstance } from "vitest";
+import { env as miniflareTestEnv } from "cloudflare:test";
+import { describe, test, expect, beforeEach, afterEach, vi } from "vitest";
 import { cloudflareKvCacheAdapter } from "~/index";
-import { Env as MiniflareEnv, typeAsSpyInstance } from "./helpers";
+import { typeAsSpyInstance } from "./helpers";
 
-const describe = setupMiniflareIsolatedStorage();
-
+type MiniflareEnv = typeof miniflareTestEnv;
 type Env = {
   CACHIFIED_KV_CACHE: Cache;
 } & MiniflareEnv;
@@ -52,10 +52,12 @@ describe("Adapter Integration tests - no swr", () => {
     startingSystemTime = new Date("2023-01-01T00:00:00.000Z").valueOf();
     vi.useFakeTimers();
     vi.setSystemTime(startingSystemTime);
-    env = getMiniflareBindings();
-    env.CACHIFIED_KV_CACHE = cloudflareKvCacheAdapter({
-      kv: env.KV,
-    });
+    env = {
+      ...miniflareTestEnv,
+      CACHIFIED_KV_CACHE: cloudflareKvCacheAdapter({
+        kv: miniflareTestEnv.KV,
+      }),
+    };
     getUserMock = vi.spyOn(testHelpers, "getUser");
   });
 
@@ -63,7 +65,7 @@ describe("Adapter Integration tests - no swr", () => {
     vi.restoreAllMocks();
   });
 
-  test("should store and retrieve a value from the cache", async () => {
+  test("it should store and retrieve a value from the cache", async () => {
     const user = await getUserById(1, TTL_TIME_MS, 0, env);
     expect(user).toEqual({
       id: 1,
@@ -184,8 +186,7 @@ describe("Adapter Integration tests - no swr", () => {
 
     // Move time forward by 1 minute
     vi.setSystemTime(startingSystemTime + TTL_TIME_MS);
-    // This call should work but miniflare is removing the underlying cache
-    // await vi.advanceTimersByTimeAsync(TTL_TIME_MS + 1);
+    await vi.advanceTimersByTimeAsync(TTL_TIME_MS + 1);
 
     const user2 = await getUserById(1, TTL_TIME_MS, 0, env);
     expect(user2).toEqual({
@@ -203,7 +204,7 @@ describe("Adapter Integration tests - no swr", () => {
       value: JSON.parse(kvSecond.value ?? '""') as unknown,
     }).toEqual({
       metadata: {
-        createdTime: startingSystemTime + TTL_TIME_MS,
+        createdTime: startingSystemTime + TTL_TIME_MS + TTL_TIME_MS + 1,
         swr: 0,
         ttl: TTL_TIME_MS,
       },
@@ -227,10 +228,12 @@ describe("Adapter Integration tests - with swr", () => {
     startingSystemTime = new Date("2021-01-01T00:00:00.000Z").valueOf();
     vi.useFakeTimers();
     vi.setSystemTime(startingSystemTime);
-    env = getMiniflareBindings();
-    env.CACHIFIED_KV_CACHE = cloudflareKvCacheAdapter({
-      kv: env.KV,
-    });
+    env = {
+      ...miniflareTestEnv,
+      CACHIFIED_KV_CACHE: cloudflareKvCacheAdapter({
+        kv: miniflareTestEnv.KV,
+      }),
+    };
     getUserMock = vi.spyOn(testHelpers, "getUser");
   });
 
@@ -417,20 +420,27 @@ describe("Adapter Integration tests - with swr", () => {
 
 describe("Adapter integration tests - delete", () => {
   const TTL_TIME_MS = 60_000; // 1 minute
-  let env: Env;
+  let env: Env = {
+    ...miniflareTestEnv,
+    CACHIFIED_KV_CACHE: cloudflareKvCacheAdapter({
+      kv: miniflareTestEnv.KV,
+    }),
+  };
   let startingSystemTime: number;
   let getUserMock = typeAsSpyInstance(testHelpers.getUser);
   let checkValueMock = typeAsSpyInstance(testHelpers.validateCache);
-  let deleteMock: MockInstance<typeof env.CACHIFIED_KV_CACHE.delete>;
+  let deleteMock = typeAsSpyInstance(env.CACHIFIED_KV_CACHE.delete);
 
   beforeEach(() => {
     startingSystemTime = new Date("2023-01-01T00:00:00.000Z").valueOf();
     vi.useFakeTimers();
     vi.setSystemTime(startingSystemTime);
-    env = getMiniflareBindings();
-    env.CACHIFIED_KV_CACHE = cloudflareKvCacheAdapter({
-      kv: env.KV,
-    });
+    env = {
+      ...miniflareTestEnv,
+      CACHIFIED_KV_CACHE: cloudflareKvCacheAdapter({
+        kv: miniflareTestEnv.KV,
+      }),
+    };
     getUserMock = vi.spyOn(testHelpers, "getUser");
     checkValueMock = vi.spyOn(testHelpers, "validateCache");
     deleteMock = vi.spyOn(env.CACHIFIED_KV_CACHE, "delete");

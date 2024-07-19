@@ -31,6 +31,6 @@ module.exports = {
         destructuredArrayIgnorePattern: "^_",
       },
     ],
-    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/consistent-type-definitions": "off",
   },
 };
