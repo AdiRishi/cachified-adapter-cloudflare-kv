@@ -1,8 +1,0 @@
-node_modules
-dist
-pnpm-lock.yaml
-.changeset/*.md
-CHANGELOG.md
-coverage
-vite.config.ts
-.eslintrc.cjs
