@@ -74,7 +74,7 @@
     "prettier": "^3.3.3",
     "rollup-plugin-typescript-paths": "^1.5.0",
     "tslib": "^2.6.3",
-    "typescript": "^5.5.3",
+    "typescript": "^5.5.4",
     "typescript-eslint": "^8.0.0-alpha.51",
     "vite": "^5.3.4",
     "vite-plugin-dts": "^3.9.1",
