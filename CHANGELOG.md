@@ -1,5 +1,13 @@
 # cachified-adapter-cloudflare-kv
 
+## 2.3.0
+
+### Minor Changes
+
+- [#322](https://github.com/AdiRishi/cachified-adapter-cloudflare-kv/pull/322) [`5bd37ac`](https://github.com/AdiRishi/cachified-adapter-cloudflare-kv/commit/5bd37ac454ec5e130e176805fc2485fc95ea3e2e) Thanks [@AdiRishi](https://github.com/AdiRishi)! - This package has been updated to support cachified 5.2.0
+  With this change comes full support for [`waitUntil`](https://developers.cloudflare.com/workers/runtime-apis/context/#waituntil).
+  The package documentation has been updated to reflect the best way to use `@epic-web/cachified` with Cloudflare KV.
+
 ## 2.2.1
 
 ### Patch Changes
