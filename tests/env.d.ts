@@ -1,7 +1,8 @@
-import { KVNamespace } from "@cloudflare/workers-types/2023-07-01";
+import { default as WorkerDefault, Env as WorkerEnv } from "./worker";
 
 declare module "cloudflare:test" {
-  interface ProvidedEnv {
-    KV: KVNamespace;
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  interface ProvidedEnv extends WorkerEnv {}
+
+  export const SELF: Service<WorkerDefault>;
 }

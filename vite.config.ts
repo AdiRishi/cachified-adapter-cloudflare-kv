@@ -23,11 +23,6 @@ export default defineWorkersConfig({
   test: {
     poolOptions: {
       workers: {
-        miniflare: {
-          bindings: {
-            ENVIRONMENT: "testing",
-          },
-        },
         wrangler: {
           configPath: "./wrangler.vitest.toml",
         },
