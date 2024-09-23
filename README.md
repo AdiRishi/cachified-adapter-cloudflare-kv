@@ -35,7 +35,11 @@ export interface Env {
     CACHIFIED_KV_CACHE: Cache;
 }
 
-export async function getUserById(userId: number, env: Env): Promise<Record<string, unknown>> {
+export async function getUserById(
+    userId: number,
+    env: Env,
+    ctx: ExecutionContext,
+): Promise<Record<string, unknown>> {
     return cachified({
         key: `user-${userId}`,
         cache: env.CACHIFIED_KV_CACHE,
@@ -45,6 +49,7 @@ export async function getUserById(userId: number, env: Env): Promise<Record<stri
         },
         ttl: 60_000, // 1 minute
         staleWhileRevalidate: 300_000, // 5 minutes
+        waitUntil: ctx.waitUntil.bind(ctx), // The .bind() call is necessary as ctx accesses `this`
     });
 }
 
@@ -58,7 +63,7 @@ export default {
             name: "CloudflareKV", // optional
         });
         const userId = Math.floor(Math.random() * 10) + 1;
-        const user = await getUserById(userId, env);
+        const user = await getUserById(userId, env, ctx);
         return new Response(JSON.stringify(user), {
             headers: {
                 "Content-Type": "application/json",
@@ -97,10 +102,6 @@ kv_namespaces = [
     { binding = "<YOUR_BINDING>", id = "<YOUR_ID>" }
 ]
 ```
-
-## 📈 Planned Changes
-
--   Investigating the integration of `ExecutionContext` for non-blocking cache operations.
 
 ## 🤝 Contributing
 

@@ -2,7 +2,7 @@ import { cachified, type Cache, type CacheMetadata, CacheEntry } from "@epic-web
 import { env as miniflareTestEnv } from "cloudflare:test";
 import { describe, test, expect, beforeEach, afterEach, vi } from "vitest";
 import { cloudflareKvCacheAdapter } from "~/index";
-import { typeAsSpyInstance } from "./helpers";
+import { typeAsMockInstance } from "./helpers";
 
 type MiniflareEnv = typeof miniflareTestEnv;
 type Env = {
@@ -46,7 +46,7 @@ describe("Adapter Integration tests - no swr", () => {
   const TTL_TIME_MS = 60_000; // 1 minute
   let env: Env;
   let startingSystemTime: number;
-  let getUserMock = typeAsSpyInstance(testHelpers.getUser);
+  let getUserMock = typeAsMockInstance(testHelpers.getUser);
 
   beforeEach(() => {
     startingSystemTime = new Date("2023-01-01T00:00:00.000Z").valueOf();
@@ -222,7 +222,7 @@ describe("Adapter Integration tests - with swr", () => {
   const STALE_WHILE_REVALIDATE_TIME_MS = 300_000; // 5 minutes
   let env: Env;
   let startingSystemTime: number;
-  let getUserMock = typeAsSpyInstance(testHelpers.getUser);
+  let getUserMock = typeAsMockInstance(testHelpers.getUser);
 
   beforeEach(() => {
     startingSystemTime = new Date("2021-01-01T00:00:00.000Z").valueOf();
@@ -427,9 +427,9 @@ describe("Adapter integration tests - delete", () => {
     }),
   };
   let startingSystemTime: number;
-  let getUserMock = typeAsSpyInstance(testHelpers.getUser);
-  let checkValueMock = typeAsSpyInstance(testHelpers.validateCache);
-  let deleteMock = typeAsSpyInstance(env.CACHIFIED_KV_CACHE.delete);
+  let getUserMock = typeAsMockInstance(testHelpers.getUser);
+  let checkValueMock = typeAsMockInstance(testHelpers.validateCache);
+  let deleteMock = typeAsMockInstance(env.CACHIFIED_KV_CACHE.delete);
 
   beforeEach(() => {
     startingSystemTime = new Date("2023-01-01T00:00:00.000Z").valueOf();

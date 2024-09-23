@@ -16,18 +16,13 @@ export default defineWorkersConfig({
       formats: ["es", "cjs"],
     },
     rollupOptions: {
-      external: ["@epic-web/cachified", "@cloudflare/workers-types"],
+      external: [/^@epic-web\/cachified$/, /^@cloudflare\/workers-types(\/.*)?$/],
     },
   },
   plugins: [typescriptPaths(), dts({ rollupTypes: true })],
   test: {
     poolOptions: {
       workers: {
-        miniflare: {
-          bindings: {
-            ENVIRONMENT: "testing",
-          },
-        },
         wrangler: {
           configPath: "./wrangler.vitest.toml",
         },

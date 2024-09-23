@@ -1,31 +1,35 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "ES2016",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
-    "types": ["@cloudflare/vitest-pool-workers"],
-    "sourceMap": true,
-    "declaration": true,
-    "outDir": "dist",
-
-    /* Bundler mode */
-    "moduleResolution": "Bundler",
-    "resolveJsonModule": true,
+    "strict": true,
+    "strictNullChecks": true,
     "isolatedModules": true,
+    "allowJs": true,
+    "checkJs": true,
+
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "target": "ES2016",
+    "moduleResolution": "Bundler",
+    "moduleDetection": "force",
+    "resolveJsonModule": true,
     "noEmit": true,
 
-    /* Linting */
-    "strict": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "pretty": true,
+    "preserveWatchOutput": true,
 
-    /* Path aliases */
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"]
     }
   },
-  "include": ["src", "tests", "vitest-env.d.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "test"]
 }
