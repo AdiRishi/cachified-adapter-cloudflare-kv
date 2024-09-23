@@ -3,10 +3,7 @@ import eslintConfigPrettier from "eslint-config-prettier";
 import eslintPluginPrettier from "eslint-plugin-prettier/recommended";
 import tsEslint from "typescript-eslint";
 
-/**
- * @type {import('eslint').Linter.FlatConfig[]}
- */
-export default [
+export default tsEslint.config(
   js.configs.recommended,
   ...tsEslint.configs.recommendedTypeChecked,
   ...tsEslint.configs.stylisticTypeChecked,
@@ -33,10 +30,6 @@ export default [
     },
   },
   {
-    files: ["docs/**/*.ts"],
-    ...tsEslint.configs.disableTypeChecked,
-  },
-  {
     ignores: [
       "**/.eslintrc.json",
       "**/node_modules",
@@ -55,4 +48,4 @@ export default [
       "**/eslint.config.mjs",
     ],
   },
-];
+);
