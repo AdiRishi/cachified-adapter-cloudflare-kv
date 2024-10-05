@@ -21,7 +21,7 @@ export async function getUserById(
     cache: env.CACHIFIED_KV_CACHE,
     async getFreshValue() {
       const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
-      const data = (await response.json()) as Record<string, unknown>;
+      const data = await response.json<Record<string, unknown>>();
       return data;
     },
     ttl: 60_000, // 1 minute
