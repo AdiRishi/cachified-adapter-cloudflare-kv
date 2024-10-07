@@ -75,7 +75,7 @@
     "rollup-plugin-typescript-paths": "^1.5.0",
     "tslib": "^2.7.0",
     "typescript": "^5.6.2",
-    "typescript-eslint": "^8.8.0",
+    "typescript-eslint": "^8.8.1",
     "vite": "^5.4.8",
     "vite-plugin-dts": "^4.2.3",
     "vitest": "2.1.2"
