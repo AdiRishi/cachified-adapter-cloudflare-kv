@@ -77,9 +77,9 @@ export default {
 
 The adapter takes the following configuration options:
 
--   kv: The KVNamespace instance used to interact with Cloudflare KV.
--   keyPrefix (optional): A prefix for all keys managed by this adapter. Useful when sharing a KVNamespace for multiple purposes.
--   name (optional): Name for the cache instance, defaults to "CloudflareKV". Used by `@epic-web/cachified` to identify the cache instance during reporting
+- kv: The KVNamespace instance used to interact with Cloudflare KV.
+- keyPrefix (optional): A prefix for all keys managed by this adapter. Useful when sharing a KVNamespace for multiple purposes.
+- name (optional): Name for the cache instance, defaults to "CloudflareKV". Used by `@epic-web/cachified` to identify the cache instance during reporting
 
 The `KVNamespace` instance can be obtained from the `env` object passed to the `fetch` event handler of a Cloudflare worker.
 
@@ -109,8 +109,8 @@ Contributions are what make the open-source community an amazing place to learn,
 
 ## 🙏 Acknowledgments
 
--   [@epic-web/cachified](https://github.com/epicweb-dev/cachified) - For the foundational caching library.
--   [Cloudflare KV](https://developers.cloudflare.com/kv/) - For the underlying caching technology.
+- [@epic-web/cachified](https://github.com/epicweb-dev/cachified) - For the foundational caching library.
+- [Cloudflare KV](https://developers.cloudflare.com/kv/) - For the underlying caching technology.
 
 ---
 
