@@ -66,8 +66,8 @@
     "@types/eslint": "^9.6.1",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.10.1",
-    "@vitest/coverage-istanbul": "2.1.6",
-    "@vitest/ui": "2.1.6",
+    "@vitest/coverage-istanbul": "2.1.7",
+    "@vitest/ui": "2.1.7",
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -78,7 +78,7 @@
     "typescript-eslint": "^8.16.0",
     "vite": "^6.0.2",
     "vite-plugin-dts": "^4.3.0",
-    "vitest": "2.1.6"
+    "vitest": "2.1.7"
   },
   "peerDependencies": {
     "@cloudflare/workers-types": "^4.20241127.0",
