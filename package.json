@@ -59,7 +59,7 @@
     "@changesets/cli": "^2.28.0",
     "@cloudflare/vitest-pool-workers": "0.6.16",
     "@cloudflare/workers-types": "^4.20250214.0",
-    "@epic-web/cachified": "^5.5.0",
+    "@epic-web/cachified": "^5.5.1",
     "@eslint/js": "^9.20.0",
     "@rollup/plugin-typescript": "^12.1.2",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
@@ -82,7 +82,7 @@
   },
   "peerDependencies": {
     "@cloudflare/workers-types": "^4.20250214.0",
-    "@epic-web/cachified": "^5.5.0"
+    "@epic-web/cachified": "^5.5.1"
   },
   "peerDependenciesMeta": {
     "@cloudflare/workers-types": {
