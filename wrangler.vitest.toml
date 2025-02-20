@@ -1,6 +1,6 @@
 name = "test-cachified-worker"
 main = "tests/worker.ts"
-compatibility_date = "2024-09-09"
+compatibility_date = "2025-02-14"
 
 compatibility_flags = ["nodejs_compat"]
 
