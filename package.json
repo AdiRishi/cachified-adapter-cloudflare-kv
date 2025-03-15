@@ -57,8 +57,8 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.28.1",
-    "@cloudflare/vitest-pool-workers": "0.7.7",
-    "@cloudflare/workers-types": "^4.20250303.0",
+    "@cloudflare/vitest-pool-workers": "0.8.0",
+    "@cloudflare/workers-types": "^4.20250313.0",
     "@epic-web/cachified": "^5.5.1",
     "@eslint/js": "^9.22.0",
     "@rollup/plugin-typescript": "^12.1.2",
@@ -74,8 +74,8 @@
     "rollup-plugin-typescript-paths": "^1.5.0",
     "tslib": "^2.8.1",
     "typescript": "^5.8.2",
-    "typescript-eslint": "^8.26.0",
-    "vite": "^6.2.1",
+    "typescript-eslint": "^8.26.1",
+    "vite": "^6.2.2",
     "vite-plugin-dts": "^4.5.3",
     "vitest": "3.0.8"
   },
@@ -88,7 +88,7 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@10.6.1",
+  "packageManager": "pnpm@10.6.3",
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
