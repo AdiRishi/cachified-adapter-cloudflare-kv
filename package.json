@@ -80,7 +80,7 @@
     "vitest": "3.1.1"
   },
   "peerDependencies": {
-    "@cloudflare/workers-types": "^4.20250405.0",
+    "@cloudflare/workers-types": "^4.20250407.0",
     "@epic-web/cachified": "^5.5.2"
   },
   "peerDependenciesMeta": {
