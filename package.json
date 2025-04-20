@@ -58,7 +58,7 @@
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.2",
     "@cloudflare/vitest-pool-workers": "0.8.18",
-    "@cloudflare/workers-types": "^4.20250419.0",
+    "@cloudflare/workers-types": "^4.20250420.0",
     "@epic-web/cachified": "^5.5.2",
     "@eslint/js": "^9.25.0",
     "@rollup/plugin-typescript": "^12.1.2",
@@ -80,7 +80,7 @@
     "vitest": "3.1.1"
   },
   "peerDependencies": {
-    "@cloudflare/workers-types": "^4.20250419.0",
+    "@cloudflare/workers-types": "^4.20250420.0",
     "@epic-web/cachified": "^5.5.2"
   },
   "peerDependenciesMeta": {
