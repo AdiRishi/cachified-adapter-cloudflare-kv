@@ -21,8 +21,8 @@ importers:
         specifier: ^4.20250628.0
         version: 4.20250628.0
       '@epic-web/cachified':
-        specifier: ^5.5.2
-        version: 5.5.2
+        specifier: ^5.6.0
+        version: 5.6.0
       '@eslint/js':
         specifier: ^9.30.0
         version: 9.30.0
@@ -272,8 +272,8 @@ packages:
   '@emnapi/runtime@1.4.3':
     resolution: {integrity: sha512-pBPWdu6MLKROBX05wSNKcNb++m5Er+KQ9QkB+WVM+pW2Kx9hoSrVTnu3BdkI5eBLZoKu/J6mW/B6i6bJB2ytXQ==}
 
-  '@epic-web/cachified@5.5.2':
-    resolution: {integrity: sha512-wuODvyMWT/zesm4z8wHLLgjaTlsVEHLZUcYy9q1Ie3SW4I9oFwD2OmqARx7ggNjD9iI7Tue1l17OKdgJEEjFsw==}
+  '@epic-web/cachified@5.6.0':
+    resolution: {integrity: sha512-mr/MmnDm3dUaCe0lHWwAour1s8E8Pn7i03W9vdA4g7AwB2l2bMFfVc6Ofb7kczL62O8UY289u2NOuv9Ac+ksyg==}
 
   '@esbuild/aix-ppc64@0.25.4':
     resolution: {integrity: sha512-1VCICWypeQKhVbE9oW/sJaAmjLxhVqacdkvPLEjwlttjfwENRSClS8EjBz0KzRyFSCPDIkuXW34Je/vk7zdB7Q==}
@@ -2764,7 +2764,7 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
-  '@epic-web/cachified@5.5.2': {}
+  '@epic-web/cachified@5.6.0': {}
 
   '@esbuild/aix-ppc64@0.25.4':
     optional: true
