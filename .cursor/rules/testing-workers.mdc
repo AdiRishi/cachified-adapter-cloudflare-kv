@@ -1,0 +1,30 @@
+---
+globs: tests/**/*.ts
+description: Vitest + Cloudflare Workers testing guidance
+---
+
+# Testing (Vitest + Workers)
+
+- Test runner configuration
+
+    - Vite Workers pool: [vite.config.ts](mdc:vite.config.ts) uses `@cloudflare/vitest-pool-workers`
+    - Wrangler test config: [wrangler.vitest.toml](mdc:wrangler.vitest.toml) binds `KV` and sets `nodejs_compat`
+
+- Utilities from `cloudflare:test`
+
+    - `env`, `SELF`, `fetchMock`, `createExecutionContext`, `waitOnExecutionContext` as seen in [tests/worker.test.ts](mdc:tests/worker.test.ts)
+    - Use `SELF.fetch()` for end-to-end style worker calls
+    - For direct worker imports, construct a typed `Request` and pass `(request, env, ctx)`
+
+- Fake timers and time control
+
+    - Use `vi.useFakeTimers()`, `vi.setSystemTime()`, and `vi.advanceTimersByTimeAsync()` to test TTL/SWR logic (see [tests/adapter.test.ts](mdc:tests/adapter.test.ts))
+
+- KV assertions
+
+    - Read via `env.KV.getWithMetadata()` to verify value and metadata (TTL/SWR/createdTime)
+    - Use [src/utils.ts](mdc:src/utils.ts) `buildCacheKey()` for prefixed keys
+
+- Commands
+    - Run all tests with coverage: `pnpm test`
+    - Interactive UI: `pnpm test:ui`
