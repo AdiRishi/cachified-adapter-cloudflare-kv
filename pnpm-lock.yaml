@@ -18,7 +18,7 @@ importers:
         specifier: 0.8.64
         version: 0.8.64(@cloudflare/workers-types@4.20250816.0)(@vitest/runner@3.2.4)(@vitest/snapshot@3.2.4)(vitest@3.2.4)
       '@cloudflare/workers-types':
-        specifier: ^4.20250813.0
+        specifier: ^4.20250816.0
         version: 4.20250816.0
       '@epic-web/cachified':
         specifier: ^5.6.0
