@@ -64,7 +64,7 @@
     "@rollup/plugin-typescript": "^12.3.0",
     "@trivago/prettier-plugin-sort-imports": "^6.0.0",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^24.10.3",
+    "@types/node": "^24.10.4",
     "@vitest/coverage-istanbul": "3.2.4",
     "@vitest/ui": "3.2.4",
     "eslint": "^9.39.2",
