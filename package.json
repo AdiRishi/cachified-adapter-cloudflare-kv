@@ -64,7 +64,7 @@
     "@rollup/plugin-typescript": "^12.3.0",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^24.10.11",
+    "@types/node": "^24.10.12",
     "@vitest/coverage-istanbul": "3.2.4",
     "@vitest/ui": "3.2.4",
     "eslint": "^9.39.2",
@@ -88,7 +88,7 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@10.29.1",
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
